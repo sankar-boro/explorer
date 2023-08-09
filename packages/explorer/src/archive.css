@@ -1,0 +1,390 @@
+
+.bottom-border {
+    border-bottom: 1px solid #4285F4;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+.inline-styles {
+    display: inline-block;
+}
+.inline-styles li {
+    display: inline-block;
+}
+
+.container-sm {
+    min-height: 680px;
+    padding-top: 40px;
+}
+.box-shadow {
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.20);
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.20);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.20);
+}
+/* Custom page containers */
+.container-create-book {
+    width: 95%;
+}
+
+
+.expand-more {
+    font-weight: bold;
+    margin-right: 10px;
+    font-family: "RobotoSlab-Bold";
+}
+/* Body */
+
+.bg-txt-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 180px;
+    background-color: rgb(255, 70, 70);
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+/** Side navigation*/
+.page-nav {
+    line-height: 1.5em;
+}
+.page-title-con {
+    width: calc(100% - 10px);
+    padding: 1px 10px;
+}
+.page-title-read {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+summary::marker {
+    font-size: 13px;
+    color: var(--black-700);
+}
+.sections-nav {
+    margin-right: 10px;
+}
+/* main-container, body-container-mobile, body-view-container, document-view-container */
+/* Read book */
+.description {
+    color: #2d2d2d;
+    font-size: 16px;
+    /* white-space: pre-wrap; #TODO */
+}
+.description > * {
+    font-size: 16px;
+    background-color: transparent;
+}
+.li-item {
+    padding: 5px 0px;
+}
+.li-item a {
+    text-decoration: none;
+}
+.li-item:hover, .section-nav:hover, .chapter-nav:hover, .page-nav:hover {
+    cursor: pointer;
+}
+.add-chapter-upper-container {
+    font-size: 0.8em;
+}
+.add-section-upper-container {
+    margin-left: 20px;
+    font-size: 0.8em;
+}
+.add-section-inner-container {
+    font-size: 0.8em;
+}
+.section-nav-top {
+    margin-left: 20px;   
+}
+.add-section-title {
+    padding: 5px 0px;
+}
+.section-nav {
+    margin-left: 20px; 
+}
+.pad-hor-5 {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.scroll-view {
+    height: 100%;
+    overflow-y:scroll;
+}
+.flex {
+    display: flex;
+}
+.flex-row {
+    flex-direction: row;
+}
+.flex-col {
+    flex-direction: column;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+  
+  /* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    font-size: 13px;
+    text-align: center;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+    left: 0;
+}
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/* Read components */
+.mc-translate-x {
+    transform: translateX(80%);
+}
+.body-container-desktop {
+    background-color: transparent !important;
+}
+.navigation-container {
+    width: 20%;
+    position: fixed;
+}
+.nav-con-mobile {
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+.nav-translate-x {
+    transform: translateX(-300px);
+}
+.body-container-desktop {
+    margin-left: 20%;
+    width: 60%;
+    min-height: 680px;
+}
+.form-view-container {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10em;
+}
+/** */
+
+.form-container {
+    margin-left: 15%;
+    width: 70%;
+    min-height: 680px;
+}
+
+.brd-left {
+    border-left: 1px solid rgb(231, 231, 231);
+}
+
+.document-view-container-desk {
+    margin-top: 20px;
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 50px;
+}
+
+.profile-container {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.user_categories_i {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.category-item {
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Page */
+.book-title, .blog-title {
+    color: #2d2d2d;
+    width: 100%;
+    font-size: 52px;
+    font-weight: bold;
+}
+.book-title-mob, .blog-title-mob {
+    color: #2d2d2d;
+    width: 100%;
+    font-size: 32px;
+    font-weight: bold;
+}
+.sub-section-title {
+    font-size: 18px;
+}
+
+/* Modal */
+.delete-view-container {
+    /* border: 1px solid red; */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+.edit-title {
+    width: 85%;
+}
+.edit-title-icons {
+    width: 15%;
+    flex-direction: row;
+    justify-content: right;
+    display: flex;
+    gap: 15px;
+    font-size: 13px;
+}
+
+.search-input-container {
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.search-input {
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    border-radius: 2px;
+    border: none;
+}
+.content-editable {
+    height: 500px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.subSection-view-container {
+    margin-top: 15px;
+}
+.set-icons {
+    font-size: 13px;
+    gap: 2px;
+}
+.delete-click {
+    margin-left: 10px;
+    font-size: 13px;
+}
+.required, .edit {
+    font-size: 12px;
+    color: #1b72ff;
+    font-weight: normal;
+}
+
+/* box-shadow: rgba(0, 0, 0, .1) 0 1px 1px; */
+
+.search__input {
+    border: none;
+    margin-left: 5px;
+}
+
+/** Footer */
+.footer {
+    display: block;
+    background-color: white;
+}
+.footer-container {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #4D4D4D;
+}
+.lily-crop {
+    /* height: 500px;  */
+    width: 500px;
+}
+
+.lily-crop-image {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    display: block;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .container-sm {
+        width: 92%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .card {
+        flex: 0 1 calc(100% - 1rem);
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .container-sm {
+        width: 92%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .card {
+        flex: 0 1 calc(50% - 0.8rem);
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .container-sm {
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .card {
+        flex: 0 1 calc(50% - 0.8rem);
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .card {
+        flex: 0 1 calc(33% - 0.8rem);
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .container-sm {
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .card {
+        flex: 0 1 calc(25% - 0.8rem);
+    }
+}
+
+.clip {
+    width: 13px;
+    height: 18px;
+}
+.clip:hover {
+    cursor: pointer;
+}
+.avatar, .menu {
+    width: 18px;
+    height: 18px;
+}
+.edit-i {
+    width: 18px;
+    height: 18px;
+}
+/** Dynamic styles */
