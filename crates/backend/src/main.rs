@@ -1,4 +1,6 @@
-use std::process::Command;
+#![allow(dead_code)]
+
+use std::process::{Command, Stdio};
 use std::io::{stdout, Write};
 use curl::easy::Easy;
 
@@ -15,12 +17,27 @@ fn curl_request() {
 }
 
 fn cmd_issue() {
-    let mut cmd = Command::new("ls");
-    cmd.arg("-la");
-    let out = cmd.output().expect("failed to execute process");
-    println!("{}", String::from_utf8_lossy(&out.stdout));
+    let cmd = Command::new("lsof")
+    .arg("-i")
+    .arg("-P")
+    .arg("-n")
+    .stdout(Stdio::piped())
+    .spawn()
+    .unwrap();
+
+    let cmd1 = Command::new("grep")
+    .arg("LISTEN")
+    .stdin(Stdio::from(cmd.stdout.unwrap())) // Pipe through.
+    // .stdout(Stdio::piped())
+    .spawn()
+    .unwrap();
+
+    let output = cmd1.wait_with_output().unwrap();
+    let result = String::from_utf8_lossy(&output.stdout);
+    println!("{}", result);
+
 }
 
 fn main() {
-    curl_request()
+    cmd_issue()
 }
