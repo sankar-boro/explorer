@@ -21,7 +21,9 @@
         "explorer/*": ["packages/explorer/src/*"],
         "explorer": ["packages/explorer/src"],
         "utils": [ "packages/utils/src"],
-        "utils/*": [ "packages/utils/src*"]
+        "utils/*": [ "packages/utils/src*"],
+        "backend": [ "packages/backend/src"],
+        "backend/*": [ "packages/backend/src*"],
       },
       "baseUrl": ".",
     }

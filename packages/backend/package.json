@@ -1,0 +1,16 @@
+{
+  "name": "@loony/backend",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "main": "index.js",
+  "engines": {
+    "node": ">=18.14"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "scripts": {
+    "build": "tsc"
+  }
+}
