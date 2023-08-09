@@ -1,3 +1,5 @@
+# Frontend
+
 build/
 build-*/
 coverage/
@@ -23,3 +25,7 @@ yarn-error.log*
 .log
 env-config.js
 NOTES.md
+
+
+# backend
+target/
