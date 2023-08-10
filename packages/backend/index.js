@@ -1,10 +1,12 @@
+const express = require('express')
+var cors = require('cors')
 const { insertKeys } = require("./insertKeys");
 const { listenOpenPorts } = require("./openPorts");
 
-const express = require('express')
 const app = express()
-const port = 3000
+const port = 8000
 
+app.use(cors())
 app.get('/', async (req, res) => {
   res.send('Hello World!')
 })
@@ -16,7 +18,7 @@ app.get('/insertParaKeys', async (req, res) => {
 
 app.get('/openPorts', async (req, res) => {
   const d = await listenOpenPorts();
-  res.send(d)
+  res.json({data: `${d}`})
 })
 
 app.listen(port, () => {
