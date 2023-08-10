@@ -1,20 +1,5 @@
 const { spawn } = require('node:child_process')
 
-function bashCmd(cmds) {
-  return new Promise((resolve, reject) => {
-    let cmd = spawn(program, cmds);
-    cmd.stdout.on('data', (data) => {
-      resolve(data)
-    })
-    cmd.on('close', (data) => {
-      resolve(data)
-    })
-    cmd.on('error', (data) => {
-      reject(data)
-    })
-  })
-}
-
 function pipeBashCmd(cmds) {
   let allspawns = [];
   cmds.forEach((d, id) => {
@@ -48,18 +33,14 @@ function pipeBashCmd(cmds) {
   })
 }
 
-// pipeBashCmd([
-//   {
-//     cmd: 'lsof',
-//     args: ['-i', '-P', '-n']
-//   },
-//   {
-//     cmd: 'grep',
-//     args: ['LISTEN']
-//   }
-// ])
 
-module.exports = {
-  bashCmd,
-  pipeBashCmd
-}
+pipeBashCmd([
+  {
+    cmd: 'lsof',
+    args: ['-i', '-P', '-n']
+  },
+  {
+    cmd: 'grep',
+    args: ['UDP']
+  }
+])

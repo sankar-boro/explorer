@@ -18,17 +18,16 @@ fn curl_request() {
 
 fn cmd_issue() {
     let cmd = Command::new("lsof")
-    .arg("-i")
-    .arg("-P")
-    .arg("-n")
+    .args(["-i", "-P", "-n"])
+    // .arg("-P")
+    // .arg("-n")
     .stdout(Stdio::piped())
     .spawn()
     .unwrap();
 
     let cmd1 = Command::new("grep")
     .arg("LISTEN")
-    .stdin(Stdio::from(cmd.stdout.unwrap())) // Pipe through.
-    // .stdout(Stdio::piped())
+    .stdin(Stdio::from(cmd.stdout.unwrap()))
     .spawn()
     .unwrap();
 
