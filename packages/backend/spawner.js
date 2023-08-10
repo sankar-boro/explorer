@@ -1,6 +1,6 @@
 const { spawn } = require('node:child_process')
 
-function bashCmd(cmds) {
+function bashCmd(program, cmds) {
   return new Promise((resolve, reject) => {
     let cmd = spawn(program, cmds);
     cmd.stdout.on('data', (data) => {
