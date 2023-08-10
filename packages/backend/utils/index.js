@@ -1,4 +1,9 @@
-const { programExists } = require("./programs");
+const { programExists, runLinuxCmd } = require("./programs");
+const { insertPg, getPg, } = require("./postgres");
+
 module.exports = {
-  programExists
+  programExists,
+  insertPg,
+  getPg,
+  runLinuxCmd
 }

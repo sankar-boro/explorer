@@ -12,6 +12,12 @@ const programExists = () => {
   })
 }
 
+const runLinuxCmd = (data) => {
+  console.log(data)
+  return "ran linux cmd"
+}
+
 module.exports = {
-  programExists
+  programExists,
+  runLinuxCmd
 }

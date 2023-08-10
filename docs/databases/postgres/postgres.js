@@ -3,16 +3,13 @@ const db = pgp('postgres://sankar:sankar@localhost:5432/sankar')
 
 async function run() {
   let __data;
-  await db.none('INSERT INTO users(userid, fname, lname, email, pwd) VALUES(${id}, $<name.fname>, $/lname/, ${email}, $/pwd/)', {
+  await db.none('INSERT INTO linuxcmds(id, name, cmds) VALUES(${id}, $/name/, $/cmds/)', {
       id: 1,
-      name: { fname: "Sankar", lname: "Boro"},
-      fname: "Sankar",
-      lname: "Boro",
-      email: "sankar.boro@yahoo.com",
-      pwd: "sankar"
+      name: "ls",
+      cmds: JSON.stringify(["-la"])
   });
 
-  await db.any('SELECT * FROM users')
+  await db.any('SELECT * FROM linuxcmds')
     .then((data) => {
       __data = data;
     })

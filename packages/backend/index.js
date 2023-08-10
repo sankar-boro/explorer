@@ -1,14 +1,18 @@
 const express = require('express')
 var cors = require('cors')
-// const pgp = require('pg-promise')(/* options */)
+const bodyParser = require('body-parser')
+const pgp = require('pg-promise')(/* options */)
 
 const { insertKeys } = require("./insertKeys");
 const { listenOpenPorts } = require("./openPorts");
-const { programExists } = require("./utils");
+const { programExists, insertPg, getPg, runLinuxCmd } = require("./utils");
 
 const app = express()
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+
 const port = 8000
-// const db = pgp('postgres://sankar:sankar@localhost:5432/sankar')
+const db = pgp('postgres://sankar:sankar@localhost:5432/sankar')
 
 app.use(cors())
 app.get('/', async (req, res) => {
@@ -28,6 +32,23 @@ app.get('/openPorts', async (req, res) => {
 app.get('/programExists', async (req, res) => {
   const d = await programExists();
   res.send(`${d}`)
+})
+
+app.post('/addPostgressCmd', async (req, res) => {
+  let data = req.body;
+  const d = await insertPg(data, db);
+  res.send(d);
+})
+
+app.get('/getPostgressCmd', async (req, res) => {
+  const d = await getPg(db);
+  res.json({ data: d });
+})
+
+app.post('/runLinuxCmd', async (req, res) => {
+  let data = req.body;
+  const d = await runLinuxCmd(data);
+  res.json({ data: d });
 })
 
 app.listen(port, () => {
