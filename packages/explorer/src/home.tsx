@@ -5,4 +5,4 @@ const Home = () => {
     );
 };
 
-exportdefault Home;
+export default Home;

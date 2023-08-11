@@ -11,7 +11,7 @@ const deletePg = async (data, db) => {
   return await db.one('DELETE FROM linuxcmds WHERE id = $1 RETURNING *', data.id)
 }
 
-export {
+module.exports = {
   insertPg,
   getPg,
   deletePg

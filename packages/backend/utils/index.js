@@ -1,7 +1,7 @@
-import { programExists, runLinuxCmd } from "./programs";
-import { insertPg, getPg, deletePg } from "./postgres";
+const { programExists, runLinuxCmd } = require("./programs");
+const { insertPg, getPg, deletePg} = require("./postgres");
 
-export {
+module.exports = {
   programExists,
   insertPg,
   getPg,

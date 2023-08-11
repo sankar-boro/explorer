@@ -3,7 +3,7 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const Dotenv = require('dotenv-webpack');
 const ESLintPlugin = require('eslint-webpack-plugin')
 
-export {
+module.exports = {
   mode: 'development',
   devtool: 'cheap-module-source-map',
   devServer: {

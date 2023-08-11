@@ -1,4 +1,4 @@
-import { spawn } from 'node:child_process'
+const { spawn } = require('node:child_process')
 
 function bashCmd(program, cmds) {
   console.log(program, cmds);
@@ -62,7 +62,7 @@ function pipeBashCmd(cmds) {
 //   }
 // ])
 
-export {
+module.exports = {
   bashCmd,
   pipeBashCmd
 }

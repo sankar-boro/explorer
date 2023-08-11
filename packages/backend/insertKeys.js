@@ -1,4 +1,4 @@
-// import { spawner } from "./spawner"
+const { bashCmd } = require("./spawner");
 
 const seed =
   'daughter peasant twelve bless century neglect title mouse habit plate galaxy ticket'
@@ -114,7 +114,7 @@ async function insertKeys() {
   })
 }
 
-export {
+module.exports = {
   insertKeys,
 }
 

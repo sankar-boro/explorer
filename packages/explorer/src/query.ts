@@ -1,4 +1,4 @@
-exportconst getOpenPorts = (setOpenPorts: any) => {
+export const getOpenPorts = (setOpenPorts: any) => {
   fetch("http://localhost:8000/openPorts")
   .then((res) => res.json())
   .then((res) => {
@@ -9,7 +9,7 @@ exportconst getOpenPorts = (setOpenPorts: any) => {
   });
 }
 
-exportconst fetchQueryGet = (url: string, body: any) => {
+export const fetchQueryGet = (url: string, body: any) => {
   return new Promise((resolve, reject) => {
     fetch(`http://localhost:8000/${url}`, {
       method: "GET", // *GET, POST, PUT, DELETE, etc.
@@ -32,7 +32,7 @@ exportconst fetchQueryGet = (url: string, body: any) => {
   })
 }
 
-exportconst fetchQueryPost = (url: string, body: any) => {
+export const fetchQueryPost = (url: string, body: any) => {
   return new Promise((resolve, reject) => {
     fetch(`http://localhost:8000/${url}`, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.

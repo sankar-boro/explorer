@@ -1,18 +1,17 @@
-import express from "express"
-import cors from "cors"
-import bodyParser from "body-parser"
-import pgPromise from "pg-promise"
+const express = require('express')
+var cors = require('cors')
+const bodyParser = require('body-parser')
+const pgp = require('pg-promise')(/* options */)
 
-import { insertKeys } from "./insertKeys"
-import { listenOpenPorts } from "./openPorts"
-import { programExists, insertPg, getPg, runLinuxCmd, deletePg } from "./utils"
+const { insertKeys } = require("./insertKeys");
+const { listenOpenPorts } = require("./openPorts");
+const { programExists, insertPg, getPg, runLinuxCmd, deletePg } = require("./utils");
 
 const app = express()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 const port = 8000
-const pgp = pgPromise({/* Initialization Options */});
 const db = pgp('postgres://sankar:sankar@localhost:5432/sankar')
 
 app.use(cors())

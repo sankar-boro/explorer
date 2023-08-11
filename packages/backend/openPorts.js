@@ -1,4 +1,4 @@
-import { pipeBashCmd } from "./spawner";
+const { pipeBashCmd } = require("./spawner");
 
 const listenOpenPorts = () => {
   return pipeBashCmd([
@@ -13,6 +13,6 @@ const listenOpenPorts = () => {
   ])
 }
 
-export {
+module.exports = {
   listenOpenPorts
 }

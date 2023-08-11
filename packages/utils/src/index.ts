@@ -1,3 +1,3 @@
-exportconst util = () => {
+export const util = () => {
     return "util"
 }

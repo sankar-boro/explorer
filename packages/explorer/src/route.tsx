@@ -16,4 +16,4 @@ const Main = () => {
   );
 };
 
-exportdefault Main;
+export default Main;

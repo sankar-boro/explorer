@@ -1,4 +1,4 @@
-exportconst stringToHex = (str: string) => {
+export const stringToHex = (str: string) => {
   let hex = '';
   for (let i = 0; i < str.length; i++) {
     const charCode = str.charCodeAt(i);
@@ -11,7 +11,7 @@ exportconst stringToHex = (str: string) => {
 };
 
 
-exportconst hexToString = (hex: string) => {
+export const hexToString = (hex: string) => {
   let str = '';
   for (let i = 0; i < hex.length; i += 2) {
     const hexValue = hex.substring(i, i + 2);
