@@ -1,18 +1,38 @@
 import { spawn } from 'node:child_process'
 
-function bashCmd(program, cmds) {
-  return new Promise((resolve, reject) => {
-    let cmd = spawn(program, cmds);
-    cmd.stdout.on('data', (data) => {
-      resolve(`${data}`)
-    })
-    cmd.on('close', (data) => {
-      resolve(`${data}`)
-    })
-    cmd.on('error', (data) => {
-      reject(`${data}`)
-    })
+const hexToString = (hex) => {
+  let str = '';
+  for (let i = 0; i < hex.length; i += 2) {
+    const hexValue = hex.substring(i, i + 2);
+    const decimalValue = parseInt(hexValue, 16);
+    const x = String.fromCharCode(decimalValue);
+    str += x;
+  }
+  return str;
+};
+
+function bashCmd(ss) {
+  const data = hexToString(ss.cmds);
+  let allCommands = [];
+
+  const splitData = data.split("|");
+  const splitDataMulti = splitData.map((r) => {
+    return r.split(" ");
   })
+  .map((r) => {
+    return r.filter((x) => x != "")
+  })
+
+  splitDataMulti.forEach((x, j) => {
+    if (x.length > 1) {
+      allCommands[j] = { cmd: x[0], args: [] }
+      for (let i=1; i < x.length; i++) {
+        allCommands[j].args.push(x[i]);
+      }
+    }
+  })
+
+  return pipeBashCmd(allCommands)
 }
 
 function pipeBashCmd(cmds) {

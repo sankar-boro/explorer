@@ -62,6 +62,7 @@ app.post('/updatePostgressCmd', async (req, res) => {
 app.post('/runLinuxCmd', async (req, res) => {
   let data = req.body;
   const d = await runLinuxCmd(data);
+  console.log('d', d);
   res.json({ data: d });
 })
 

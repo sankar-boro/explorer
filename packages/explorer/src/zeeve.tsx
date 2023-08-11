@@ -37,7 +37,7 @@ const Main = () => {
   });
 
   const runCmd = (name: string, cmds: string) => {
-    fetchQueryPost('runLinuxCmd', { name, cmds: hexToString(cmds) })
+    fetchQueryPost('runLinuxCmd', { name, cmds })
     .then((res: any) => {
       setResponse(res.data);
     })
