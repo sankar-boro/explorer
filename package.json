@@ -12,6 +12,8 @@
     "node": ">=18.14"
   },
   "scripts": {
+    "build-backend": "babel ./packages/backend --out-dir ./build/backend",
+    "start-backend": "yarn build-backend &&  node ./build/backend/index.js",
     "start": "webpack serve --config ./config/webpack.config.js --env env=dev",
     "build": "webpack --config ./config/webpack.config.js --env env=prod",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
