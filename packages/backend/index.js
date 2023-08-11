@@ -5,7 +5,7 @@ const pgp = require('pg-promise')(/* options */)
 
 const { insertKeys } = require("./insertKeys");
 const { listenOpenPorts } = require("./openPorts");
-const { programExists, insertPg, getPg, runLinuxCmd } = require("./utils");
+const { programExists, insertPg, getPg, runLinuxCmd, deletePg } = require("./utils");
 
 const app = express()
 app.use(bodyParser.json())
@@ -42,6 +42,11 @@ app.post('/addPostgressCmd', async (req, res) => {
 
 app.get('/getPostgressCmd', async (req, res) => {
   const d = await getPg(db);
+  res.json({ data: d });
+})
+
+app.post('/deletePostgressCmd', async (req, res) => {
+  const d = await deletePg(req.body, db);
   res.json({ data: d });
 })
 
