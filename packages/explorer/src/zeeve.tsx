@@ -31,8 +31,20 @@ const Main = () => {
   const [insertCmd, setInsertCmd] = useState("");
   const [insertLabel, setInsertLabel] = useState("");
 
+  const [currentInput, setCurrentInput] = useState("");
+  const [currentData, setCurrentData] = useState({
+    update: 0
+  });
+
   const runCmd = (name: string, cmds: string) => {
     fetchQueryPost('runLinuxCmd', { name, cmds: hexToString(cmds) })
+    .then((res: any) => {
+      setResponse(res.data);
+    })
+  }
+
+  const updateCmd = (cmds: string, id: number) => {
+    fetchQueryPost('updatePostgressCmd', { cmds: stringToHex(cmds), id })
     .then((res: any) => {
       setResponse(res.data);
     })
@@ -74,7 +86,7 @@ const Main = () => {
             <button onClick={() => { submitPgCmd() }}>Submit</button>
           </div>
           <div style={{ flex: 1 }}>
-            <div style={{ whiteSpace: "pre-wrap" }}><pre>{response}</pre></div>
+            <div style={{ whiteSpace: "pre-wrap", fontSize: 12 }}><pre>{response}</pre></div>
           </div>
         </div>
 
@@ -84,7 +96,17 @@ const Main = () => {
           return <div key={cmds.id}>
             <hr />
             <div>
-              <span className="label">{cmds.label}</span> <span className="cmd">{cmds.name} {hexToString(cmds.cmds)}</span>
+              <div className="label">{cmds.label}</div>
+              {currentData.update === cmds.id ? 
+              <>
+                <input onChange={(e) => { setCurrentInput(e.target.value)}} value={currentInput}/>
+                <button onClick={() => {
+                  updateCmd(currentInput, cmds.id)
+                }}>
+                  Update
+                </button>
+              </> : <div className="cmd">{hexToString(cmds.cmds)}</div>} 
+              
               <button onClick={() => { runCmd(cmds.name, cmds.cmds) }}>
                 Run
               </button>
@@ -93,6 +115,18 @@ const Main = () => {
               </button>
               <button onClick={() => { deleteCmd(cmds.id) }}>
                 Delete
+              </button>
+              <button onClick={() => { 
+                setCurrentData({...currentData, update: cmds.id }) 
+                setCurrentInput(hexToString(cmds.cmds));
+              }}>
+                Update
+              </button>
+              <button onClick={() => { 
+                setCurrentData({...currentData, update: 0 }) 
+                setCurrentInput("");
+              }}>
+                Cancel
               </button>
             </div>
           </div>

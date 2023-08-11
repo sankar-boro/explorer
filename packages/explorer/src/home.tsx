@@ -1,7 +1,9 @@
-
 const Home = () => {
     return (
-      <div>Home</div>
+      <div>
+        <div>Home</div>
+        <div><a href="/zeeve">Zeeve</a></div>
+      </div>
     );
 };
 

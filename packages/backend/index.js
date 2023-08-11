@@ -3,9 +3,11 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 import pgPromise from 'pg-promise'
 
-import { insertKeys } from "./insertKeys"
-import { listenOpenPorts } from "./openPorts"
-import { programExists, insertPg, getPg, runLinuxCmd, deletePg } from "./utils"
+// import { insertKeys } from "./insertKeys"
+// import { listenOpenPorts } from "./openPorts"
+import { insertPg, getPg, runLinuxCmd, deletePg, updatePg } from "./utils"
+
+// 
 
 const app = express()
 app.use(bodyParser.json())
@@ -21,20 +23,20 @@ app.get('/', async (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/insertParaKeys', async (req, res) => {
-  const d = await insertKeys();
-  res.send(d)
-})
+// app.get('/insertParaKeys', async (req, res) => {
+//   const d = await insertKeys();
+//   res.send(d)
+// })
 
-app.get('/openPorts', async (req, res) => {
-  const d = await listenOpenPorts();
-  res.json({data: `${d}`})
-})
+// app.get('/openPorts', async (req, res) => {
+//   const d = await listenOpenPorts();
+//   res.json({data: `${d}`})
+// })
 
-app.get('/programExists', async (req, res) => {
-  const d = await programExists();
-  res.send(`${d}`)
-})
+// app.get('/programExists', async (req, res) => {
+//   const d = await programExists();
+//   res.send(`${d}`)
+// })
 
 app.post('/addPostgressCmd', async (req, res) => {
   let data = req.body;
@@ -49,6 +51,11 @@ app.get('/getPostgressCmd', async (req, res) => {
 
 app.post('/deletePostgressCmd', async (req, res) => {
   const d = await deletePg(req.body, db);
+  res.json({ data: d });
+})
+
+app.post('/updatePostgressCmd', async (req, res) => {
+  const d = await updatePg(req.body, db);
   res.json({ data: d });
 })
 

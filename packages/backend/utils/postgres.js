@@ -11,8 +11,13 @@ const deletePg = async (data, db) => {
   return await db.one('DELETE FROM linuxcmds WHERE id = $1 RETURNING *', data.id)
 }
 
+const updatePg = async (data, db) => {
+  return await db.none('UPDATE linuxcmds SET cmds=$1 WHERE id=$2', [data.cmds, data.id])
+}
+
 export {
   insertPg,
   getPg,
-  deletePg
+  deletePg,
+  updatePg
 }
