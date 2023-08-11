@@ -1,15 +1,12 @@
 import { spawn } from 'node:child_process'
 
 function bashCmd(program, cmds) {
-  console.log(program, cmds);
   return new Promise((resolve, reject) => {
     let cmd = spawn(program, cmds);
     cmd.stdout.on('data', (data) => {
-      console.log(`${data}`)
       resolve(`${data}`)
     })
     cmd.on('close', (data) => {
-      console.log(`${data}`)
       resolve(`${data}`)
     })
     cmd.on('error', (data) => {

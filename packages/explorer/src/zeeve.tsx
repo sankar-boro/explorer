@@ -34,7 +34,6 @@ const Main = () => {
   const runCmd = (name: string, cmds: string) => {
     fetchQueryPost('runLinuxCmd', { name, cmds: hexToString(cmds) })
     .then((res: any) => {
-      // console.log(JSON.stringify(res))
       setResponse(res.data);
     })
   }

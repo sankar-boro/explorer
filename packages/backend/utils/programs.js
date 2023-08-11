@@ -37,7 +37,6 @@ const programExists = () => {
 
 const runLinuxCmd = (data) => {
   let x = JSON.parse(data.cmds);
-  console.log(data, x);
   return new Promise((resolve, reject) => {
     bashCmd(data.name, x)
     .then((res) => {

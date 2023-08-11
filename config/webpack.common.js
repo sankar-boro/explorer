@@ -5,8 +5,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 function findPackages () {
   const pkgRoot = path.join(__dirname, '..', 'packages');
-  console.log(__dirname);
-  console.log(pkgRoot);
 
   return fs
     .readdirSync(pkgRoot)
