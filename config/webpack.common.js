@@ -31,7 +31,7 @@ const alias = findPackages().reduce((alias, { dir, name }) => {
   return alias;
 }, {});
 
-module.exports = {
+export {
   entry: path.resolve(__dirname, '..', './packages/explorer/src/index.tsx'),
   resolve: {
     alias,

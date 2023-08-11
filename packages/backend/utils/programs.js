@@ -1,4 +1,4 @@
-const { bashCmd } = require("../spawner");
+import { bashCmd } from "../spawner";
 
 // const stringToHex = (str) => {
 //   let hex = '';
@@ -49,7 +49,7 @@ const runLinuxCmd = (data) => {
   })
 }
 
-module.exports = {
+export {
   programExists,
   runLinuxCmd
 }

@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 const Dotenv = require('dotenv-webpack');
 
-module.exports = {
+export {
   mode: 'production',
   devtool: 'source-map',
   output: {
